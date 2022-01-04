@@ -182,6 +182,7 @@ RUN set -x && export DEBIAN_FRONTEND=noninteractive && \
         python3 \
         sudo \
         curl \
+		vi \
     && \
 # Clean up apt-cache
     rm -rf /var/lib/apt/lists/* &&\
@@ -248,6 +249,7 @@ RUN set -x && export DEBIAN_FRONTEND=noninteractive && \
         setpriv \
         sudo \
         curl \
+		vi \
     && \
 # Clean up apt-cache
     rm -rf /var/lib/apt/lists/* && \
@@ -278,6 +280,7 @@ RUN set -x && export DEBIAN_FRONTEND=noninteractive && \
         util-linux \
         sudo \
         curl \
+		vi \
     && \
 # Clean up apt-cache
     rm -rf /var/lib/apt/lists/* && \
@@ -349,6 +352,7 @@ RUN set -x && export DEBIAN_FRONTEND=noninteractive && \
     python-crypto \
     python-six \
     python3-six \
+	vi \
 # An updated version of Git (from the PPA source above)
 # that supports doing Yocto externalsrc recipes against free-
 # standing working copies that use Git worktrees.
@@ -430,6 +434,7 @@ RUN set -x && export DEBIAN_FRONTEND=noninteractive && \
 # Base OS stuff that reasonable workstations have, but which the registry image
 # doesn't
     tzdata \
+	vi \
 && rm -rf /var/lib/apt/lists/*
 
 # Python modules used by resulttool
@@ -487,7 +492,12 @@ RUN set -x && export DEBIAN_FRONTEND=noninteractive && \
 # Required for some poorly written 3rd party recipes :(
     python-crypto \
     python-six \
-    python3-six \
+ # Dependencies for devtool
+	vi \
+	vim \
+	emacs \
+	nano \
+   python3-six \
 # Corollary to the core Yocto gcc-multilib package. Allows various
 # prebuilt native tools to work
     g++-multilib \
@@ -569,6 +579,11 @@ RUN set -x && export DEBIAN_FRONTEND=noninteractive && \
     tzdata \
 # Dependencies for other layers
     xxd \
+# Dependencies for devtool
+	vi \
+	vim \
+	emacs \
+	nano \
 && rm -rf /var/lib/apt/lists/*
 
 # Python modules used by resulttool
